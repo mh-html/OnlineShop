@@ -13,7 +13,7 @@ function SearchCart({ setSearchProduct }) {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
-      <button onClick={searchHandler}>OK</button>
+      <button onClick={searchHandler}>Search</button>
     </div>
   );
 }

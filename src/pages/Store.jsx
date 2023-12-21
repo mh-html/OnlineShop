@@ -9,20 +9,26 @@ function Store() {
   const products = useShoppingCarts();
   const [filterProduct, setFilterProduct] = useState(products);
   const [searchProduct, setSearchProduct] = useState("");
+  const [categoryProcust, setCategoryProduct] = useState("all");
 
   useEffect(() => {
-    const filteredItems = products.filter((product) =>
+    let filteredItems = null;
+    filteredItems = products.filter((products) => {
+      if (categoryProcust !== "all")
+        return products.category === categoryProcust;
+      else return products;
+    });
+    filteredItems = filteredItems.filter((product) =>
       product.title.toLowerCase().includes(searchProduct)
     );
     setFilterProduct(filteredItems);
-  }, [searchProduct, products]);
-
+  }, [searchProduct, products, categoryProcust]);
 
   return (
     <div>
       <h1>Online Shop</h1>
       <div className="flex flex-row-reverse justify-between">
-        <Category />
+        <Category setCategoryProduct={setCategoryProduct} />
         <div>
           <SearchCart setSearchProduct={setSearchProduct} />
           <div className="grid grid-cols-3 gap-4 bg-cyan-600 p-3">

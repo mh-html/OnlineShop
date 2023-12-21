@@ -1,6 +1,12 @@
-function Category() {
+function Category({ setCategoryProduct }) {
+  const categoryHandler = (e) => {
+    e.target.tagName === "BUTTON" &&
+      setCategoryProduct(e.target.innerText.toLowerCase());
+  };
   return (
-    <div className="w-1/4 p-2 bg-yellow-500 flex flex-col items-start">
+    <div
+      onClick={categoryHandler}
+      className="w-1/4 p-2 bg-yellow-500 flex flex-col items-start">
       <button>All</button>
       <button>women's clothing</button>
       <button>electronics</button>
