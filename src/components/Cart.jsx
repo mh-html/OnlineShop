@@ -6,6 +6,7 @@ function Cart({ data: { image, title, price, category } }) {
       <div className="w-full">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
+      <p className="border-b-2">{title}</p>
       <div className="flex justify-between items-center">
         <p>{price}</p>
         <p>{category}</p>
