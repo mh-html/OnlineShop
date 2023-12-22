@@ -14,15 +14,6 @@ function ShoppingCartContext({ children }) {
     } catch (error) {
       console.log(error.message);
     }
-    // try {
-    //   const fetchData = async () => {
-    //     const response = await fakeStoreApi.get('/products');
-    //     setProducts(response);
-    //   };
-    //   fetchData();
-    // } catch (error) {
-    //   console.log(error.message);
-    // }
   }, []);
   return (
     <ShoppingCartContextProvider.Provider value={products}>

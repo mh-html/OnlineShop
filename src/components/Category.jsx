@@ -6,12 +6,12 @@ function Category({ setCategoryProduct }) {
   return (
     <div
       onClick={categoryHandler}
-      className="w-1/4 p-2 bg-yellow-500 flex flex-col items-start">
-      <button>All</button>
-      <button>women's clothing</button>
-      <button>electronics</button>
-      <button>jewelery</button>
-      <button>men's clothing</button>
+      className="w-2/5 md:w-1/5 h-fit sticky top-4 p-2 bg-cyan-700 flex flex-col items-start rounded-md text-white font-semibold text-sm md:text-md lg:text-lg">
+      <button className="py-2">All</button>
+      <button className="py-2">women's clothing</button>
+      <button className="py-2">electronics</button>
+      <button className="py-2">jewelery</button>
+      <button className="py-2">men's clothing</button>
     </div>
   );
 }

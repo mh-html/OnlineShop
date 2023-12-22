@@ -1,5 +1,7 @@
 //Componens
 import { useEffect, useState } from "react";
+import { RotatingSquare } from "react-loader-spinner";
+
 import Cart from "../components/Cart";
 import Category from "../components/Category";
 import SearchCart from "../components/SearchCart";
@@ -25,16 +27,28 @@ function Store() {
   }, [searchProduct, products, categoryProcust]);
 
   return (
-    <div>
-      <h1>Online Shop</h1>
-      <div className="flex flex-row-reverse justify-between">
+    <div className="container mx-auto mt-4 px-2 lg:px-8">
+      <h1 className="py-3 text-cyan-700 font-bold uppercase text-2xl text-center">
+        jewel online shop
+      </h1>
+      <SearchCart setSearchProduct={setSearchProduct} />
+      <div className="flex flex-row-reverse justify-between gap-3 p-1">
         <Category setCategoryProduct={setCategoryProduct} />
-        <div>
-          <SearchCart setSearchProduct={setSearchProduct} />
-          <div className="grid grid-cols-3 gap-4 bg-cyan-600 p-3">
-            {filterProduct.map((item) => (
-              <Cart key={item.id} data={item} />
-            ))}
+        <div className="w-3/5 md:w-4/5">
+          {products.length === 0 && (
+            <RotatingSquare
+              visible={true}
+              height="100"
+              width="100"
+              color="rgb(14,116,144)"
+              ariaLabel="rotating-square-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {products.length === 20 &&
+              filterProduct.map((item) => <Cart key={item.id} data={item} />)}
           </div>
         </div>
       </div>

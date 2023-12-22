@@ -3,10 +3,12 @@ import { NavLink } from 'react-router-dom'
 
 function NavBar() {
   return (
-    <div className='container flex justify-around items-center bg-cyan-600 text-white'>
+    <div className="container mx-auto">
+    <nav className='flex justify-around items-center bg-cyan-700 text-white py-4 font-bold text-2xl rounded-b-lg'>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/store'>Store</NavLink>
         <NavLink to='/about-us'>About Us</NavLink>
+    </nav>
     </div>
   )
 }
