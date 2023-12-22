@@ -7,6 +7,7 @@ import Store from "./pages/Store";
 import AboutUs from "./pages/AboutUs";
 //Componens
 import NavBar from "./components/NavBar";
+import DetailsProduct from "./pages/DetailsProduct";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="store" element={<Store />} />
+            <Route path="store/:id" element={<DetailsProduct />} />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>
       </ShoppingCartContext>

@@ -1,6 +1,7 @@
 //Componens
 import { useEffect, useState } from "react";
 import { RotatingSquare } from "react-loader-spinner";
+import { FaShoppingBag } from "react-icons/fa";
 
 import Cart from "../components/Cart";
 import Category from "../components/Category";
@@ -28,8 +29,8 @@ function Store() {
 
   return (
     <div className="container mx-auto mt-4 px-2 lg:px-8">
-      <h1 className="py-3 text-cyan-700 font-bold uppercase text-2xl text-center">
-        jewel online shop
+      <h1 className="flex justify-center items-center my-5 text-cyan-700 font-bold uppercase text-2xl">
+        <FaShoppingBag /> jewel online shop
       </h1>
       <SearchCart setSearchProduct={setSearchProduct} />
       <div className="flex flex-row-reverse justify-between gap-3 p-1">
