@@ -9,6 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import NavBar from "./components/NavBar";
 import DetailsProduct from "./pages/DetailsProduct";
 import BascketCartContext from "./context/BascketCartContext";
+import Bascket from "./pages/Bascket";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="store" element={<Store />} />
+            <Route path="bascket" element={<Bascket />} />
             <Route path="store/:id" element={<DetailsProduct />} />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>

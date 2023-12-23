@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { RotatingSquare } from "react-loader-spinner";
 import { FaShoppingBag } from "react-icons/fa";
-//Componens
+//Components
 import Cart from "../components/Cart";
 import Category from "../components/Category";
 import SearchCart from "../components/SearchCart";
