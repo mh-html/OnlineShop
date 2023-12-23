@@ -1,4 +1,4 @@
-import { FaStar, FaRegStarHalf, FaRegStar } from "react-icons/fa6";
+import { FaStar, FaRegStarHalfStroke, FaRegStar } from "react-icons/fa6";
 
 const convertRatingToStar = (rating) => {
   const stars = [];
@@ -7,7 +7,7 @@ const convertRatingToStar = (rating) => {
     if (i < Math.floor(roundedRating)) {
       stars.push(<FaStar key={i} />);
     } else if (i < roundedRating) {
-      stars.push(<FaRegStarHalf key={i} />);
+      stars.push(<FaRegStarHalfStroke key={i} />);
     } else {
       stars.push(<FaRegStar key={i} />);
     }

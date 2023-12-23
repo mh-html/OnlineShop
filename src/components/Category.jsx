@@ -1,10 +1,14 @@
+//Package
 import { BiCategory } from "react-icons/bi";
+import { configQuery } from "../utils/configQuery";
 
-function Category({ setCategoryProduct }) {
+function Category({ setCategoryProduct, query, setQuery }) {
   const categoryHandler = (e) => {
-    e.target.tagName === "BUTTON" &&
-      setCategoryProduct(e.target.innerText.toLowerCase());
+    const categorySelected = e.target.innerText.toLowerCase();
+    e.target.tagName === "LI" && setCategoryProduct(categorySelected);
+    setQuery(configQuery({ ...query }, { category: categorySelected }));
   };
+  
   return (
     <ul
       onClick={categoryHandler}

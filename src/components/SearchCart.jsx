@@ -1,11 +1,15 @@
+//Package
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { configQuery } from "../utils/configQuery";
 
-function SearchCart({ setSearchProduct }) {
+function SearchCart({ setSearchProduct, query, setQuery }) {
   const [searchInput, setSearchInput] = useState("");
 
   const searchHandler = () => {
-    setSearchProduct(searchInput.trim().toLowerCase());
+    const searchText = searchInput.trim().toLowerCase();
+    setSearchProduct(searchText);
+    setQuery(configQuery({ ...query }, { search: searchText }));
   };
 
   return (
