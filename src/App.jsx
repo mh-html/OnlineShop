@@ -8,18 +8,21 @@ import AboutUs from "./pages/AboutUs";
 //Componens
 import NavBar from "./components/NavBar";
 import DetailsProduct from "./pages/DetailsProduct";
+import BascketCartContext from "./context/BascketCartContext";
 
 function App() {
   return (
     <>
-      <NavBar />
       <ShoppingCartContext>
+        <BascketCartContext>
+          <NavBar />
           <Routes>
             <Route index element={<Home />} />
             <Route path="store" element={<Store />} />
             <Route path="store/:id" element={<DetailsProduct />} />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>
+        </BascketCartContext>
       </ShoppingCartContext>
     </>
   );
