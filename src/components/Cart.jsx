@@ -47,7 +47,7 @@ function Cart({ data }) {
                 </button>
               )}
 
-              <span className="mx-2 font-bold">{inBascket.quantity}</span>
+              <span className="mx-2 font-bold text-[14px]">{inBascket.quantity}</span>
             </>
           )}
           {!inBascket ? (

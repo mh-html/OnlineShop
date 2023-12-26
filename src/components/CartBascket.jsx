@@ -8,10 +8,10 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { useBascketCart } from "../hooks/useBascketCart";
 
 function CartBascket({ data }) {
-  const { image, quantity, title, rate, price } = data;
+  const { image, quantity, title, price } = data;
   const { dispatch } = useBascketCart();
   return (
-    <div className="flex justify-between items-center border-2 border-cyan-700 rounded-md p-4">
+    <div className="flex justify-between items-center border-2 border-cyan-700 rounded-md p-4 mb-4">
       <div className="w-12 h-14 overflow-hidden rounded-md">
         <img src={image} alt={title} className="w-full h-full" />
       </div>

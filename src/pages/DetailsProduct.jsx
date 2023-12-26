@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BiCategory } from "react-icons/bi";
 import { FaShoppingBag } from "react-icons/fa";
 
 import useShoppingCarts from "../hooks/useShoppingCarts";
-import { convertRatingToStar } from "../utils/ratingToStar";
+import { convertRatingToStar } from "../components/ratingToStar";
 
 function DetailsProduct() {
   const products = useShoppingCarts();
