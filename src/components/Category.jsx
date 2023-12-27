@@ -5,10 +5,12 @@ import { configQuery } from "../utils/configQuery";
 function Category({ setCategoryProduct, query, setQuery }) {
   const categoryHandler = (e) => {
     const categorySelected = e.target.innerText.toLowerCase();
-    e.target.tagName === "LI" && setCategoryProduct(categorySelected);
-    setQuery(configQuery({ ...query }, { category: categorySelected }));
+    if (e.target.tagName === "LI") {
+      setCategoryProduct(categorySelected);
+      setQuery(configQuery({ ...query }, { category: categorySelected }));
+    }
   };
-  
+
   return (
     <ul
       onClick={categoryHandler}

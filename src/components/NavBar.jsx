@@ -14,7 +14,7 @@ function NavBar() {
     <div className="container mx-auto">
       <nav className="flex justify-around items-center bg-cyan-700 text-white py-4 font-bold text-2xl rounded-b-lg">
         <div className="h-14"><img src={logo} alt="logo jewel" className="h-full w-full" /></div>
-        <div className="flex justify-between items-center gap-x-8">
+        <div className="flex justify-between items-center gap-x-8 text-sm md:text-lg">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/store">Store</NavLink>
         <NavLink to="/about-us">About Us</NavLink>

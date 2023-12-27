@@ -21,7 +21,7 @@ function Cart({ data }) {
         <img src={image} alt={title} className="w-full h-full" />
       </div>
       <div className="flex justify-between items-center">
-        <p className="font-bold py-2">{shortenTtile(title)}</p>
+        <p className="font-bold py-2">{shortenTtile(title)}...</p>
         <p className="font-bold text-gray-700">$ {price}</p>
       </div>
       <div className="flex justify-between items-center px-3">

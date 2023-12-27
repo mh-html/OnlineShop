@@ -12,7 +12,7 @@ function DetailsProduct() {
     products[id - 1];
 
   return (
-    <div className="container mx-auto mt-8 flex flex-col md:flex-row justify-evenly items-center gap-4 px-8 md:px-4">
+    <div className="container mx-auto mt-8 flex flex-col md:flex-row justify-evenly items-center gap-4 px-8 md:px-4 lg:px-48">
       <div className="w-[300px] sm:w-auto flex-1 border-2 border-cyan-700 rounded-md overflow-hidden p-2">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
