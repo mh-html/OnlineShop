@@ -19,7 +19,7 @@ function SearchCart({ setSearchProduct, query, setQuery }) {
         placeholder="Search..."
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        className="w-72 px-2 py-1 border-2 border-cyan-700 rounded-md outline-none valid:text-cyan-700 placeholder:text-cyan-700"
+        className="w-60 md:w-72 px-2 py-1 border-2 border-cyan-700 rounded-md outline-none valid:text-cyan-700 placeholder:text-cyan-700"
       />
       <button
         onClick={searchHandler}

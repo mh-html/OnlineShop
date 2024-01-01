@@ -13,13 +13,13 @@ function DetailsProduct() {
 
   return (
     <div className="container mx-auto mt-8 flex flex-col md:flex-row justify-evenly items-center gap-4 px-8 md:px-4 lg:px-48">
-      <div className="w-[300px] sm:w-auto flex-1 border-2 border-cyan-700 rounded-md overflow-hidden p-2">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+      <div className="w-60 lg:w-72 flex-1 border-2 border-cyan-700 rounded-md overflow-hidden p-2">
+        <img src={image} alt={title} className="size-full object-cover" />
       </div>
       <div className="flex-[2_2_0%]">
-        <h1 className="font-bold text-2xl text-cyan-700">{title}</h1>
-        <p className="text-md font-semibold">{description}</p>
-        <div className="flex justify-between items-center my-8 text-2xl font-bold text-cyan-700">
+        <h1 className="font-bold text-sm md:text-xl text-cyan-700">{title}</h1>
+        <p className="text-xs md:text-base lg:text-lg font-semibold">{description}</p>
+        <div className="flex justify-between items-center my-4 lg:my-8 text-sm lg:text-2xl font-bold text-cyan-700">
           <p>{price} $</p>
           <p className="flex items-center">
             <BiCategory />

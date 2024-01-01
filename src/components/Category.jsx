@@ -12,18 +12,20 @@ function Category({ setCategoryProduct, query, setQuery }) {
   };
 
   return (
-    <ul
+    <div
       onClick={categoryHandler}
-      className="w-2/5 md:w-1/5 h-fit sticky top-4 p-2 bg-cyan-700 flex flex-col items-start rounded-md text-white font-semibold text-sm md:text-md">
+      className="h-fit sticky top-4 p-2 bg-cyan-700 flex flex-col items-start rounded-md text-white font-semibold text-xs md:text-base">
       <p className="font-bold flex items-center mb-3">
         <BiCategory /> Categories
       </p>
-      <li className="cursor-pointer py-1">All</li>
-      <li className="cursor-pointer py-1">women's clothing</li>
-      <li className="cursor-pointer py-1">electronics</li>
-      <li className="cursor-pointer py-1">jewelery</li>
-      <li className="cursor-pointer py-1">men's clothing</li>
-    </ul>
+      <ul className="*:cursor-pointer *:py-1">
+        <li>All</li>
+        <li>women's clothing</li>
+        <li>electronics</li>
+        <li>jewelery</li>
+        <li>men's clothing</li>
+      </ul>
+    </div>
   );
 }
 

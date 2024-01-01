@@ -12,12 +12,12 @@ function CartBascket({ data }) {
   const { dispatch } = useBascketCart();
   return (
     <div className="flex justify-between items-center border-2 border-cyan-700 rounded-md p-4 mb-4">
-      <div className="w-12 h-14 overflow-hidden rounded-md">
-        <img src={image} alt={title} className="w-full h-full" />
+      <div className="size-12 overflow-hidden rounded-md">
+        <img src={image} alt={title} className="size-full object-contain" />
       </div>
-      <div className="text-cyan-800">
-        <h2 className="font-bold text-xl">{shortenTtile(title)}</h2>
-        <p className="font-semibold text-xl">$ {price}</p>
+      <div className="text-cyan-800 text-base lg:text-xl">
+        <h2 className="font-bold">{shortenTtile(title)}</h2>
+        <p className="font-semibold">$ {price}</p>
       </div>
       <div className="text-cyan-800">
         {quantity === 1 ? (

@@ -24,7 +24,6 @@ function Store() {
 
   useEffect(() => {
     let filteredItems = products;
-
     if (categoryProcust !== "all") {
       filteredItems = products.filter(
         (product) => product.category === categoryProcust
@@ -40,7 +39,7 @@ function Store() {
 
   return (
     <div className="container mx-auto mt-4 px-2 lg:px-8">
-      <h1 className="flex justify-center items-center my-5 text-cyan-700 font-bold uppercase text-2xl">
+      <h1 className="flex justify-center items-center my-5 text-cyan-700 font-bold uppercase text-base lg:text-2xl">
         <FaShoppingBag /> jewel online shop
       </h1>
       <SearchCart
@@ -48,12 +47,14 @@ function Store() {
         query={query}
         setQuery={setQuery}
       />
-      <div className="flex flex-row-reverse justify-between gap-3 p-1">
-        <Category
-          setCategoryProduct={setCategoryProduct}
-          query={query}
-          setQuery={setQuery}
-        />
+      <div className="flex flex-row-reverse justify-between px-4 gap-3 p-1">
+        <div className="w-2/5 md:w-1/5">
+          <Category
+            setCategoryProduct={setCategoryProduct}
+            query={query}
+            setQuery={setQuery}
+          />
+        </div>
         <div className="w-3/5 md:w-4/5">
           {products.length === 0 && (
             <RotatingSquare
@@ -66,7 +67,7 @@ function Store() {
               wrapperClass=""
             />
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {products.length === 20 &&
               filterProduct.map((item) => <Cart key={item.id} data={item} />)}
           </div>
