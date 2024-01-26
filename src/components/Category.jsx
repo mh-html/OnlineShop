@@ -14,7 +14,7 @@ function Category({ setCategoryProduct, query, setQuery }) {
   return (
     <div
       onClick={categoryHandler}
-      className="h-fit sticky top-4 p-2 bg-cyan-700 flex flex-col items-start rounded-md text-white font-semibold text-xs md:text-base">
+      className="h-fit sticky top-4 p-2 bg-tl dark:bg-td flex flex-col items-start rounded-md text-bl dark:text-bd font-semibold text-xs md:text-base">
       <p className="font-bold flex items-center mb-3">
         <BiCategory /> Categories
       </p>

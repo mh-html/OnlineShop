@@ -39,7 +39,7 @@ function Store() {
 
   return (
     <div className="container mx-auto mt-4 px-2 lg:px-8">
-      <h1 className="flex justify-center items-center my-5 text-cyan-700 font-bold uppercase text-base lg:text-2xl">
+      <h1 className="flex justify-center items-center my-5 text-tl dark:text-td font-bold uppercase text-base lg:text-2xl">
         <FaShoppingBag /> jewel online shop
       </h1>
       <SearchCart
@@ -61,7 +61,7 @@ function Store() {
               visible={true}
               height="100"
               width="100"
-              color="rgb(14,116,144)"
+              color="#d946ef"
               ariaLabel="rotating-square-loading"
               wrapperStyle={{}}
               wrapperClass=""

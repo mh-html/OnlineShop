@@ -13,20 +13,20 @@ import Bascket from "./pages/Bascket";
 
 function App() {
   return (
-    <>
+    <div className="bg-bl dark:bg-bd">
       <ShoppingCartContext>
         <BascketCartContext>
           <NavBar />
           <Routes>
             <Route index element={<Home />} />
             <Route path="store" element={<Store />} />
-            <Route path="bascket" element={<Bascket />} />
             <Route path="store/:id" element={<DetailsProduct />} />
+            <Route path="bascket" element={<Bascket />} />
             <Route path="about-us" element={<AboutUs />} />
           </Routes>
         </BascketCartContext>
       </ShoppingCartContext>
-    </>
+    </div>
   );
 }
 

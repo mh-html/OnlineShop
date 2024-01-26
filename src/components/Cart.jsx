@@ -16,7 +16,7 @@ function Cart({ data }) {
   const inBascket = state.bascketCart.find((p) => p.id === id);
 
   return (
-    <div className="p-2 border-2 border-cyan-700 rounded-md text-cyan-700 bg-white">
+    <div className="p-2 border-2 border-tl rounded-md text-tl dark:text-td bg-bl dark:bg-bd">
       <div className="size-40 lg:size-56 mx-auto overflow-hidden rounded-sm">
         <img src={image} alt={title} className="size-full object-contain" />
       </div>
@@ -25,7 +25,7 @@ function Cart({ data }) {
         <p className="text-gray-700">$ {price}</p>
       </div>
       <div className="flex justify-between items-center px-2">
-        <button>
+        <button className="border-2 border-tl dark:border-td rounded-md">
           <Link to={`/store/${id}`}>
             <TbListDetails size={"22px"} />
           </Link>
@@ -35,6 +35,7 @@ function Cart({ data }) {
             <>
               {inBascket.quantity === 1 ? (
                 <button
+                className="border-2 border-tl dark:border-td rounded-md"
                   onClick={() =>
                     dispatch({ type: "REMOVE_ITEM", payload: data })
                   }>
@@ -42,21 +43,24 @@ function Cart({ data }) {
                 </button>
               ) : (
                 <button
+                className="border-2 border-tl dark:border-td rounded-md"
                   onClick={() => dispatch({ type: "DECREASE", payload: data })}>
                   <TbShoppingBagMinus size={"22px"} />
                 </button>
               )}
 
-              <span className="mx-2 font-bold text-[14px]">{inBascket.quantity}</span>
+              <span className="mx-2 font-bold text-[14px] dark:text-white">{inBascket.quantity}</span>
             </>
           )}
           {!inBascket ? (
             <button
+            className="border-2 border-tl dark:border-td rounded-md"
               onClick={() => dispatch({ type: "ADD_ITEM", payload: data })}>
               <MdAddShoppingCart size={"22px"} />
             </button>
           ) : (
             <button
+            className="border-2 border-tl dark:border-td rounded-md"
               onClick={() => dispatch({ type: "INCREASE", payload: data })}>
               <TbShoppingBagPlus size={"22px"} />
             </button>
