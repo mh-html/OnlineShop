@@ -21,10 +21,10 @@ function Bascket() {
         <p className="text-xl text-tl dark:text-td">Status : Pending... </p>
       </div>
       <div className="w-full md:w-2/3">
-        {state.bascketCart.map((product) => (
+        {state.basketCart.map((product) => (
           <CartBascket key={product.id} data={product} />
         ))}
-        {!state.bascketCart.length && (
+        {!state.basketCart.length && (
           <p className="text-xl font-semibold text-bd dark:text-bl">Empity...</p>
         )}
       </div>

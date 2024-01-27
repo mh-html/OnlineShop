@@ -13,7 +13,7 @@ import { useBascketCart } from "../hooks/useBascketCart";
 function Cart({ data }) {
   const { id, image, title, price } = data;
   const { state, dispatch } = useBascketCart();
-  const inBascket = state.bascketCart.find((p) => p.id === id);
+  const inBascket = state.basketCart.find((p) => p.id === id);
 
   return (
     <div className="p-2 border-2 border-tl rounded-md text-tl dark:text-td bg-bl dark:bg-bd">

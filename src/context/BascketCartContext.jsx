@@ -1,56 +1,78 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
+
 const initialState = {
-  bascketCart: [],
+  basketCart: [],
   totalAll: 0,
   quantityAll: 0,
 };
+
 export const BascketCartContextProvider = createContext(null);
+
+// Action Types
+const ADD_ITEM = "ADD_ITEM";
+const REMOVE_ITEM = "REMOVE_ITEM";
+const INCREASE = "INCREASE";
+const DECREASE = "DECREASE";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_ITEM":
-      const isItemForAdd = state.bascketCart.findIndex(
+    case ADD_ITEM:
+      const isItemForAdd = state.basketCart.some(
         (product) => product.id === action.payload.id
       );
 
-      if (isItemForAdd === -1) {
+      if (!isItemForAdd) {
         const newProduct = { ...action.payload, quantity: 1 };
+        const updatedBasket = [...state.basketCart, newProduct];
+        localStorage.setItem("basketCart", JSON.stringify(updatedBasket)); // Save to localStorage
         return {
           ...state,
-          bascketCart: [...state.bascketCart, newProduct],
+          basketCart: updatedBasket,
         };
       } else return state;
 
-    case "REMOVE_ITEM":
-      const updatedBasket = state.bascketCart.filter(
+    case REMOVE_ITEM:
+      const updatedBasket = state.basketCart.filter(
         (product) => product.id !== action.payload.id
       );
+      localStorage.setItem("basketCart", JSON.stringify(updatedBasket)); // Save to localStorage
+      return { ...state, basketCart: updatedBasket };
 
-      return { ...state, bascketCart: updatedBasket };
-
-    case "INCREASE":
-      const increasedCart = state.bascketCart.map((product) =>
+    case INCREASE:
+      const increasedCart = state.basketCart.map((product) =>
         product.id === action.payload.id
           ? { ...product, quantity: product.quantity + 1 }
           : product
       );
+      localStorage.setItem("basketCart", JSON.stringify(increasedCart)); // Save to localStorage
+      return { ...state, basketCart: increasedCart };
 
-      return { ...state, bascketCart: increasedCart };
-    case "DECREASE":
-      const decreasedCart = state.bascketCart.map((product) =>
-        product.id === action.payload.id && product.quantity > 0
-          ? { ...product, quantity: product.quantity - 1 }
+    case DECREASE:
+      const decreasedCart = state.basketCart.map((product) =>
+        product.id === action.payload.id
+          ? { ...product, quantity: Math.max(0, product.quantity - 1) }
           : product
       );
+      localStorage.setItem("basketCart", JSON.stringify(decreasedCart)); // Save to localStorage
+      return { ...state, basketCart: decreasedCart };
 
-      return { ...state, bascketCart: decreasedCart };
     default:
       return state;
   }
 };
 
 function BascketCartContext({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {
+    ...initialState,
+    // Retrieve basketCart from localStorage on initial render
+    basketCart: JSON.parse(localStorage.getItem("basketCart")) || [],
+  });
+
+  // Update localStorage whenever basketCart changes
+  useEffect(() => {
+    localStorage.setItem("basketCart", JSON.stringify(state.basketCart));
+  }, [state.basketCart]);
+
   return (
     <BascketCartContextProvider.Provider value={{ state, dispatch }}>
       {children}

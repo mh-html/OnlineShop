@@ -2,7 +2,7 @@ const calculatorTotal = (state) => {
   let total = 0,
     quantity = 0;
 
-  state.bascketCart.forEach((product) => {
+  state.basketCart.forEach((product) => {
     total += product.price * product.quantity;
     quantity += product.quantity;
   });

@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 //Package
 import { NavLink } from "react-router-dom";
 //Icons
@@ -10,15 +10,22 @@ import { useBascketCart } from "../hooks/useBascketCart";
 import { calculatorTotal } from "../utils/calculatorTotalPrice";
 
 function NavBar() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => localStorage.getItem("darkmode") === "true");
+
   const { state } = useBascketCart();
   calculatorTotal(state);
-  const darkmodeHandler = () => {
+
+  useEffect(() => {
     darkMode
-    ? document.documentElement.classList.remove("dark")
-    : document.documentElement.classList.add("dark")
-    setDarkMode(darkMode => !darkMode)
+      ? document.documentElement.classList.add("dark")
+      : document.documentElement.classList.remove("dark");
+    localStorage.setItem("darkmode", darkMode);
+  }, [darkMode]);
+
+  const darkmodeHandler = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
   };
+
   return (
     <div className="container mx-auto">
       <nav className="flex justify-around items-center bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-white shadow-md py-4 font-bold text-2xl rounded-b-lg">
@@ -39,7 +46,7 @@ function NavBar() {
             )}
           </NavLink>
           <button onClick={darkmodeHandler}>
-            {darkMode ? <SiDarkreader /> :  <MdLightMode />} 
+            {darkMode ? <SiDarkreader /> : <MdLightMode />}
           </button>
         </div>
       </nav>
