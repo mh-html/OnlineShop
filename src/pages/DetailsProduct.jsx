@@ -17,8 +17,12 @@ function DetailsProduct() {
         <img src={image} alt={title} className="size-full object-cover" />
       </div>
       <div className="flex-[2_2_0%]">
-        <h1 className="font-bold text-sm md:text-xl text-tl dark:text-td">{title}</h1>
-        <p className="text-xs md:text-base lg:text-lg font-semibold text-bd dark:text-bl">{description}</p>
+        <h1 className="font-bold text-sm md:text-xl text-tl dark:text-td">
+          {title}
+        </h1>
+        <p className="text-xs md:text-base lg:text-lg font-semibold text-bd dark:text-bl">
+          {description}
+        </p>
         <div className="flex justify-between items-center my-4 lg:my-8 text-sm lg:text-2xl font-bold text-tl dark:text-td">
           <p>{price} $</p>
           <p className="flex items-center">
@@ -26,13 +30,13 @@ function DetailsProduct() {
             {category}
           </p>
         </div>
-        <span className="text-amber-500 font-bold text-3xl">
+        <span className="text-amber-500 font-bold text-3xl text-tl dark:text-bl">
           {rating.rate} {convertRatingToStar(rating.rate)}
         </span>
         <div className="flex justify-between items-center bg-tl dark:text-td rounded-md p-4 mt-10 text-white">
           <Link
             to="/store"
-            className="border-2 border-white text-white px-4 py-1 rounded-md flex items-center">
+            className="border-2 border-white text-white px-4 py-1 rounded-md flex items-center hover:animate-pulse">
             <FaShoppingBag /> Go to shop
           </Link>
         </div>

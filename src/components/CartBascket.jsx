@@ -6,6 +6,7 @@ import { TbShoppingBagMinus, TbShoppingBagPlus } from "react-icons/tb";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 //Hooks
 import { useBascketCart } from "../hooks/useBascketCart";
+import { notif } from "../utils/showNotif";
 
 function CartBascket({ data }) {
   const { image, quantity, title, price } = data;
@@ -23,7 +24,10 @@ function CartBascket({ data }) {
         {quantity === 1 ? (
           <button
             className="border border-tl dark:border-td rounded-md"
-            onClick={() => dispatch({ type: "REMOVE_ITEM", payload: data })}>
+            onClick={() => {
+              dispatch({ type: "REMOVE_ITEM", payload: data });
+              notif("error", shortenTtile(title));
+          }}>
             <MdOutlineRemoveShoppingCart size={"22px"} />
           </button>
         ) : (

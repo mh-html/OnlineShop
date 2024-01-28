@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 //Components
 import CartBascket from "../components/CartBascket";
 //Hooks
@@ -25,9 +26,12 @@ function Bascket() {
           <CartBascket key={product.id} data={product} />
         ))}
         {!state.basketCart.length && (
-          <p className="text-xl font-semibold text-bd dark:text-bl">Empity...</p>
+          <p className="text-xl font-semibold text-bd dark:text-bl">
+            Empity...
+          </p>
         )}
       </div>
+      <ToastContainer />
     </div>
   );
 }

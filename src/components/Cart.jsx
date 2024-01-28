@@ -1,6 +1,8 @@
 //Package
 import { Link } from "react-router-dom";
 import { TbListDetails } from "react-icons/tb";
+import "react-toastify/dist/ReactToastify.css";
+
 //Icons
 import { MdAddShoppingCart, MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { TbShoppingBagPlus } from "react-icons/tb";
@@ -9,6 +11,7 @@ import { TbShoppingBagMinus } from "react-icons/tb";
 import { shortenTtile } from "../utils/ShortenTitle";
 //Hooks
 import { useBascketCart } from "../hooks/useBascketCart";
+import { notif } from "../utils/showNotif";
 
 function Cart({ data }) {
   const { id, image, title, price } = data;
@@ -35,32 +38,39 @@ function Cart({ data }) {
             <>
               {inBascket.quantity === 1 ? (
                 <button
-                className="border-2 border-tl dark:border-td rounded-md"
-                  onClick={() =>
-                    dispatch({ type: "REMOVE_ITEM", payload: data })
+                  className="border-2 border-tl dark:border-td rounded-md"
+                  onClick={() =>{
+                    dispatch({ type: "REMOVE_ITEM", payload: data });
+                    notif("error", shortenTtile(title));
+                  }
                   }>
                   <MdOutlineRemoveShoppingCart size={"22px"} />
                 </button>
               ) : (
                 <button
-                className="border-2 border-tl dark:border-td rounded-md"
+                  className="border-2 border-tl dark:border-td rounded-md"
                   onClick={() => dispatch({ type: "DECREASE", payload: data })}>
                   <TbShoppingBagMinus size={"22px"} />
                 </button>
               )}
 
-              <span className="mx-2 font-bold text-[14px] dark:text-white">{inBascket.quantity}</span>
+              <span className="mx-2 font-bold text-[14px] dark:text-white">
+                {inBascket.quantity}
+              </span>
             </>
           )}
           {!inBascket ? (
             <button
-            className="border-2 border-tl dark:border-td rounded-md"
-              onClick={() => dispatch({ type: "ADD_ITEM", payload: data })}>
+              className="border-2 border-tl dark:border-td rounded-md"
+              onClick={() => {
+                dispatch({ type: "ADD_ITEM", payload: data });
+                notif("success", shortenTtile(title));
+              }}>
               <MdAddShoppingCart size={"22px"} />
             </button>
           ) : (
             <button
-            className="border-2 border-tl dark:border-td rounded-md"
+              className="border-2 border-tl dark:border-td rounded-md"
               onClick={() => dispatch({ type: "INCREASE", payload: data })}>
               <TbShoppingBagPlus size={"22px"} />
             </button>

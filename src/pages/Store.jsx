@@ -1,5 +1,7 @@
 //Package
 import { useEffect, useState } from "react";
+import { ToastContainer, } from 'react-toastify';
+
 import { RotatingSquare } from "react-loader-spinner";
 import { FaShoppingBag } from "react-icons/fa";
 //Components
@@ -38,7 +40,7 @@ function Store() {
   }, [searchProduct, products, categoryProcust]);
 
   return (
-    <div className="container mx-auto mt-4 px-2 lg:px-8">
+    <div className="container mx-auto min-h-screen mt-4 px-2 lg:px-8">
       <h1 className="flex justify-center items-center my-5 text-tl dark:text-td font-bold uppercase text-base lg:text-2xl">
         <FaShoppingBag /> jewel online shop
       </h1>
@@ -73,6 +75,7 @@ function Store() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
