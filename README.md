@@ -9,6 +9,9 @@ Online store mini-project and adding products to the shopping cart
 - View product details
 - Ability to search
 - Ability to search by category
+- dark mode
+- Save to local storage
+- Show notifications
 
 ## Installation
 
